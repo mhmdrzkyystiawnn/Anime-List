@@ -37,8 +37,8 @@ export default function AnimeCard({ anime }) {
           {/* Score Badge */}
           {score && (
             <div className="absolute top-3 right-3 glass rounded-lg px-2 py-1 flex items-center gap-1 backdrop-blur-md">
-              <Star weight="fill" className="text-yellow-400 w-4 h-4" />
-              <span className="text-sm font-bold">{score}</span>
+              <Star weight="fill" className="text-yellow-600 w-4 h-4" />
+              <span className="text-sm font-bold text-yellow-400">{score}</span>
             </div>
           )}
 

@@ -116,7 +116,7 @@ img {
 
 /* Text selection */
 ::selection {
-    background: var(--maroon-glow);
+    background: var(--maroon);
     color: var(--text-primary);
 }
 

@@ -32,7 +32,7 @@ export default async function AnimeDetailPage({ params }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Backdrop */}
-      <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <div className="relative min-h-[50vh] md:min-h-[60vh] pt-10 md:pt-24">
         {/* Backdrop Image */}
         <div className="absolute inset-0">
           <Image

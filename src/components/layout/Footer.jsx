@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Fire weight="fill" className="text-[var(--maroon-strong)] w-8 h-8" />
-              <span className="text-xl font-bold text-gradient">KaiAnimeList</span>
+              <span className="text-xl font-bold text-gradient">KyyAnimeList</span>
             </div>
             <p className="text-white/60 text-sm">
               Platform untuk menemukan dan menjelajahi ribuan anime dari berbagai genre
@@ -46,7 +46,7 @@ export default function Footer() {
                 </a>
               </p>
               <a
-                href="https://github.com"
+                href="https://github.com/mhmdrzkyystiawnn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
@@ -61,10 +61,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm">
-            © {currentYear} KaiAnimeList. All rights reserved.
+            © {currentYear} KyyAnimeList. All rights reserved.
           </p>
           <p className="flex items-center gap-2 text-white/60 text-sm">
-            Made with <Heart weight="fill" className="text-red-500" /> by Kaicoder
+            Made with <Heart weight="fill" className="text-red-500" /> by ikii
           </p>
         </div>
       </div>
