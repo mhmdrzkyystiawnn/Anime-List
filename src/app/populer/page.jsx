@@ -1,4 +1,5 @@
 // src/app/populer/page.jsx
+export const dynamic = "force-dynamic"
 import { Suspense } from "react"
 import { getTopAnime } from "@/lib/api"
 import AnimeGrid from "@/components/anime/AnimeGrid"
