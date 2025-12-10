@@ -2,33 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-*, *::before *::after {
+:root {
+    --bg-gradient: radial-gradient(ellipse at 20% 20%, rgba(64, 16, 34, 0.9), transparent 70%),
+                   radial-gradient(ellipse at 80% 80%, rgba(122, 31, 55, 0.6), transparent 70%),
+                   linear-gradient(135deg, #0f0509, #1a0812, #2d0f1a);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-primary: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --accent: #ffb3cc;
+    --accent-strong: #ffe0eb;
+    --maroon: #c94266;
+    --maroon-strong: #e85577;
+    --maroon-glow: rgba(232, 85, 119, 0.3);
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 40px 100px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 40px var(--maroon-glow);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+*, *::before, *::after {
     padding: 0;
     margin: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Glass morphism utility */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+}
+
+/* Image hover effect */
 img {
-    transition: .3s ease all;
-    -webkit-animation: .3s ease all;
-    -moz-animation: .3s ease all;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-img:hover {
-    scale: 102%;
+.anime-card:hover img {
+    transform: scale(1.05);
 }
 
+/* Loading spinner */
 .loading {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: 
-      radial-gradient(farthest-side,#fbc500 94%,#0000) top/16px 16px no-repeat,
-      conic-gradient(#0000 30%,#fbc500);
-    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
-    animation:s3 0.5s infinite linear;
-  }
-  
-  @keyframes s3{ 
-    100%{transform: rotate(1turn)}
-  }
+      radial-gradient(farthest-side, var(--maroon) 94%, transparent) top/12px 12px no-repeat,
+      conic-gradient(transparent 30%, var(--maroon));
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0);
+    animation: spin 0.6s infinite linear;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Skeleton pulse animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--maroon);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--maroon-strong);
+}
+
+/* Text selection */
+::selection {
+    background: var(--maroon-glow);
+    color: var(--text-primary);
+}
+
+/* Focus styles */
+*:focus-visible {
+    outline: 2px solid var(--maroon);
+    outline-offset: 2px;
+}
+
+/* Utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-strong), var(--maroon-strong));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glow-text {
+    text-shadow: 0 0 20px var(--maroon-glow);
+}
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+}
